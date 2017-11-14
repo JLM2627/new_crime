@@ -1,6 +1,9 @@
-User.create({name: "Chris", email: "456@gmail.com", password: "456"})
+chris = User.create({name: "Chris", email: "456@gmail.com", password: "456"})
 
-User.create({name: "Jill", email: "467@gmail.com", password: "458"})
+jill = User.create({name: "Jill", email: "467@gmail.com", password: "458"})
+
+
+jayme = User.create({name: "Jayme", email: "467@gmail.com", password: "458"})
 
 public_indecency = Crime.create({
     title: 'Public Indecency',

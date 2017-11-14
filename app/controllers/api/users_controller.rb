@@ -16,6 +16,8 @@ class Api::UsersController < ApplicationController
      end
 
     def show
+      
+
         user_id = params[:id]
         @user = User.find_by_id(user_id)
     

@@ -31,7 +31,20 @@ class Api::UsersController < ApplicationController
         @user.update_attributes(user_params)
 
         render json: @user
+    
+        def destroy
+            user_id = params[:id]
+            @user = User.find_by_id(user_id)
+
+            @user.destroy
+
+            render json: {
+                msg: "succesfully destroyed!"
+            }
+
+        end
     end
+
 
 
     private

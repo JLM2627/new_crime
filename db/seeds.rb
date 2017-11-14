@@ -1,3 +1,6 @@
+User.destroy_all
+Crime.destroy_all
+
 chris = User.create({name: "Chris", email: "456@gmail.com", password: "456"})
 
 jill = User.create({name: "Jill", email: "467@gmail.com", password: "458"})

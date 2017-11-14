@@ -1,7 +1,7 @@
 class Api::CrimesController < ApplicationController
 
      def index
-    @crimes = Crimes.all
+    @crimes = Crime.all
     render json: @crimes
   end
 
@@ -12,9 +12,12 @@ class Api::CrimesController < ApplicationController
   end
 
   def show
-    @crimes = Crime.find(params[:id])
-
-    render json: @crime
+    @crime = Crime.find(params[:id])
+    @comments = @crime.comments
+    render json: {
+        crime: @crime,
+        comments: @comments
+  }
   end
 
   def update

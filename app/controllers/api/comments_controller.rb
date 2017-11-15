@@ -14,7 +14,7 @@ class Api::CommentsController < ApplicationController
 
     def create
       @user = User.find(params[:user_id])
-      @comment = Comment.new(artist_params)
+      @comment = Comment.new(comment_params)
 
       @user.comments << @comment
       @user.save!

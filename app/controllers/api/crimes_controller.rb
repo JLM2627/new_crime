@@ -6,7 +6,7 @@ class Api::CrimesController < ApplicationController
   end
 
   def create
-    @acrime = Crime.create!(crime_params)
+    @crime = Crime.create!(crime_params)
 
     render json: @crime
   end

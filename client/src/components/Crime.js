@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from "axios";
+import NewCommentToPost from "./NewCommentToPost";
 
 class Crime extends Component {
     constructor() {
@@ -37,6 +38,7 @@ class Crime extends Component {
     render() {
         return (
             <div>
+            <div>
                 <h2>Crime</h2>
                 {this.state.crime.title}
                 {this.state.crime.description}
@@ -44,9 +46,15 @@ class Crime extends Component {
                     <div key={comment.id}>
                         <h1>{comment.title}</h1>
                         <h4>{comment.description}</h4>    
+                        
                     </div>
                 ))}
+
             </div>
+            <div>
+                    <NewCommentToPost crimeId={this.props.match.params.id}/>
+        </div>
+        </div>
         );
     }
 }

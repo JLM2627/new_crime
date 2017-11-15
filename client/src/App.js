@@ -1,38 +1,43 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import "./App.css";
 import HomePage from "./components/HomePage";
 import NavBar from "./components/NavBar";
 import Crime from "./components/Crime";
 import CrimesList from "./components/CrimesList";
+import UserInfo from "./components/UserInfo"
+
+
 
 
 class App extends Component {
   render() {
 
     
-    return (
-      <Router>
-        <div className="App">
-           <NavBar /> 
-          <div>
-            <h1>Sleuth</h1>
+    return <MuiThemeProvider>
+        <Router>
+          <div className="App">
+            <NavBar />
             <div>
-              <div><Link to="/">All Crimes</Link></div>
+              <h1>Sleuth</h1>
+              <div>
+                <div>
+                  <Link to="/">All Crimes</Link>
+                </div>
+              </div>
+            </div>
+            <div>
+              <Switch>
+                <Route exact path="/" component={CrimesList} />
+                <Route exact path="/crime/:id" component={Crime} />
+                <Route exact path="/users" component={UserInfo} />
+                {/* <Route path="/crimes/${crimeId}/comments" component={NewCommentToPost} />    */}
+              </Switch>
             </div>
           </div>
-          <div>
-          <Route exact path="/" component={CrimesList} />
-          <Route path="/crime/:id" component={Crime} />
-          {/* <Route exact path="/" render={HomePageComponent} />  */}
-       
-             </div> 
-        </div>     
-          
-  
-      </Router>
-
-    );
+        </Router>
+      </MuiThemeProvider>;
   }
 
 }

@@ -39,8 +39,10 @@ class UserSignUp extends Component {
     render() {
         if (this.state.redirectToUserInfo) {
             return <Redirect to={`/user/${this.state.newUserId}`} />
+           
         }
-        return <div>
+        return (
+         <div>
             <h1>Sign-Up</h1>
             <form onSubmit={this.handleSubmit}>
               <div>
@@ -56,9 +58,12 @@ class UserSignUp extends Component {
                 <input onChange={this.handleChange} name="email" type="text" value={this.state.newUser.email} />
               </div>
 
-              <button>Sign Up</button>
+             <div> <button>Sign Up</button></div>
             </form>
-          </div>;
+                </div>
+        )
+
+
     }
 }
 

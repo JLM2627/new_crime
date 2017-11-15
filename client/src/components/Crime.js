@@ -5,8 +5,8 @@ class Crime extends Component {
     constructor() {
         super();
         this.state = {
-            crime: {}
-            // comments: 
+            crime: {},
+            comments: []
         }
     }
 
@@ -20,7 +20,8 @@ class Crime extends Component {
             const crimeResponse = await axios.get(`/api/crimes/${crimeId}`)
             console.log(crimeResponse.data)
             await this.setState({
-                crime: crimeResponse.data.crime
+                crime: crimeResponse.data.crime,
+                comments: crimeResponse.data.comments
             });
         }
         catch (error) {
@@ -39,6 +40,12 @@ class Crime extends Component {
                 <h2>Crime</h2>
                 {this.state.crime.title}
                 {this.state.crime.description}
+                {this.state.comments.map(comment => (
+                    <div key={comment.id}>
+                        <h1>{comment.title}</h1>
+                        <h4>{comment.description}</h4>    
+                    </div>
+                ))}
             </div>
         );
     }

@@ -30,7 +30,7 @@ class NavBar extends Component {
         return (
         <StyledNavBar>
           <div>
-              <h4><HeadLink href={'/'}>Sleuth1</HeadLink></h4>
+              <h4><HeadLink href={'/'}>Sleuth</HeadLink></h4>
           </div>
         </StyledNavBar>   
         )

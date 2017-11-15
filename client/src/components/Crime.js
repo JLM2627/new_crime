@@ -17,9 +17,10 @@ class Crime extends Component {
 
     grabCrime = async (crimeId) => {
         try {
-            const crimeResponse = await axios.get(`api/crimes/${crimeId}`)
+            const crimeResponse = await axios.get(`/api/crimes/${crimeId}`)
+            console.log(crimeResponse.data)
             await this.setState({
-                crime: crimeResponse.data
+                crime: crimeResponse.data.crime
             });
         }
         catch (error) {
@@ -37,6 +38,7 @@ class Crime extends Component {
             <div>
                 <h2>Crime</h2>
                 {this.state.crime.title}
+                {this.state.crime.description}
             </div>
         );
     }

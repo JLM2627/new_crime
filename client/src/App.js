@@ -14,7 +14,7 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          {/* <NavBar /> */}
+           <NavBar /> 
           <div>
             <h1>Sleuth</h1>
             <div>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 class UserInfo extends Component {
   constructor() {
@@ -39,16 +40,18 @@ class UserInfo extends Component {
       if (this.state.error) {
             return <div>{this.state.error}</div>
       }
-      return (
-          <div>
-              <h1>All Users</h1>
-              {this.state.users.map(user => (
-                  <div key={user.id}></div>
-              
-              ))}
-            {this.state.users.name}
-          </div>
-      );
+        return (
+        <div>
+          <h1>All Users</h1>
+        
+          {this.state.users.map(user => (
+                    <div key={user.id}>{user.name} 
+                        
+              </div>          
+          ))}
+          
+            </div>
+        )    
   }
 }
 

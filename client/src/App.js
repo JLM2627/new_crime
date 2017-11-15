@@ -7,6 +7,9 @@ import NavBar from "./components/NavBar";
 import Crime from "./components/Crime";
 import CrimesList from "./components/CrimesList";
 import UserInfo from "./components/UserInfo"
+import UserSignUp from "./components/UserSignUp"
+import LogInPage from "./components/LogInPage";
+import { Redirect } from "react-router-dom";
 
 
 
@@ -32,7 +35,7 @@ class App extends Component {
                 <Route exact path="/" component={CrimesList} />
                 <Route exact path="/crime/:id" component={Crime} />
                 <Route exact path="/users" component={UserInfo} />
-                {/* <Route path="/crimes/${crimeId}/comments" component={NewCommentToPost} />    */}
+               <Route exact path="/login" component={LogInPage} />
               </Switch>
             </div>
           </div>

@@ -39,6 +39,7 @@ class CrimesList extends Component {
                         <Link to={`/crime/${crime.id}`} >{crime.title}</Link>
                     </div>
                 ))}
+                <button><Link to="/login">Login</Link></button>
             </div>
         );
     }

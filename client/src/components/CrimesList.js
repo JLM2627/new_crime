@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 import axios from 'axios';
 
 class CrimesList extends Component {
@@ -21,7 +22,7 @@ class CrimesList extends Component {
         }
         catch (err) {
             console.log(err)
-            await this.state({ error: err.message })
+            await this.setState({ error: err.message })
             return err.message
         }
     }
@@ -35,7 +36,7 @@ class CrimesList extends Component {
                 <h1>Crime Categories</h1>
                 {this.state.crimes.map(crime => (
                     <div key={crime.id}>
-                        <Link to={`/crime/$crime.id}`} >{crime.name}</Link>
+                        <Link to={`/crime/$crime.id}`} >{crime.title}</Link>
                     </div>
                 ))}
             </div>

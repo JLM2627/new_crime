@@ -11,16 +11,30 @@ class App extends Component {
   render() {
 
     
-    return <Router>
-        {/* <NavBar /> */}
-        <div><Link to="/">All Crimes</Link></div>
-      {/* <Switch> */}
-        <Route exact path="/" component={CrimesList}/>
-        <Route path="/crime/:id" component={Crime} />
+    return (
+      <Router>
+        <div className="App">
+          {/* <NavBar /> */}
+          <div>
+            <h1>Sleuth</h1>
+            <div>
+              <div><Link to="/">All Crimes</Link></div>
+            </div>
+          </div>
+          <div>
+          <Route exact path="/" component={CrimesList} />
+          <Route path="/crime/:id" component={Crime} />
           {/* <Route exact path="/" render={HomePageComponent} />  */}
-        {/* </Switch>  */}
-      </Router>;
+       
+             </div> 
+        </div>     
+          
+  
+      </Router>
+
+    );
   }
+
 }
 
 export default App;

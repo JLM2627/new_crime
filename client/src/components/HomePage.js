@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import styled from "styled-components";
 
 const StyledHomePage = styled.div`
-    font-family: "Fjalla One", sans-serif;
+
+    /* font-family: "Fjalla One", sans-serif; */
+    font-family: 'Codystar', sans-serif
   
 `;
 

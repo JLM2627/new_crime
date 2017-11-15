@@ -11,6 +11,14 @@ const StyledNavBar = styled.div`
   background: rgba(255, 255, 255, 0.7);
 `;
 
+const HeadLink = styled.a`
+  text-decoration: none;
+  font-family: 'Raleway Dots',
+  color: white;
+  /* text-shadow: 2px 2px #72e0ff; */
+  margin: 10px;
+`;
+
 
 
 
@@ -22,7 +30,7 @@ class NavBar extends Component {
         return (
         <StyledNavBar>
           <div>
-            <h4>Sleuth</h4>
+              <h4><HeadLink href={'/'}>Sleuth1</HeadLink></h4>
           </div>
         </StyledNavBar>   
         )

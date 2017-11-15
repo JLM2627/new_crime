@@ -1,19 +1,25 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "./App.css";
 import HomePage from "./components/HomePage";
 import NavBar from "./components/NavBar";
+import Crime from "./components/Crime";
+import CrimesList from "./components/CrimesList";
 
 
 class App extends Component {
   render() {
-    return <div>
-        <div>
-          <NavBar />
-        </div>
-        <div>
-          <HomePage />
-        </div>
-      </div>;
+
+    
+    return <Router>
+        {/* <NavBar /> */}
+        <div><Link to="/">All Crimes</Link></div>
+      {/* <Switch> */}
+        <Route exact path="/" component={CrimesList}/>
+        <Route path="/crime/:id" component={Crime} />
+          {/* <Route exact path="/" render={HomePageComponent} />  */}
+        {/* </Switch>  */}
+      </Router>;
   }
 }
 

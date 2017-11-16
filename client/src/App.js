@@ -37,9 +37,10 @@ class App extends Component {
               <Switch>
                 <Route exact path="/" component={CrimesList} />
                 <Route exact path="/crime/:crimeId" component={Crime} />
-                <Route exact path="/users/:userId/Info" component={UserInfo} />
+              <Route exact path="/users/:userId/Info" component={UserInfo} />
+              <Route exact path="/users/userId/comments" component={CommentPage}/>
               <Route exact path="/login" component={LogInPage} />
-              <Route exact path="/comment/UserId" component={CommentPage}/>
+              
               </Switch>
             </div>
           </div>

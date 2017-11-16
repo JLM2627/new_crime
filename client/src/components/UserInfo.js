@@ -6,7 +6,7 @@ class UserInfo extends Component {
   constructor() {
     super();
     this.state = {
-        users: []
+        user: {}
       
     };
   }
@@ -22,10 +22,12 @@ class UserInfo extends Component {
 
   grabUser = async () => {
       try {
-        console.log("test")
-        const res = await axios.get('/api/users');
+
+        const userId = this.props.match.params.userId
+        console.log(userId)
+        const res = await axios.get(`/api/users/${userId}`);
       console.log(res.data)  
-        await this.setState({ users: res.data })
+        await this.setState({ user: res.data })
       return res.data  
          
     }
@@ -43,9 +45,8 @@ class UserInfo extends Component {
         return <div>
             <h1>All Users</h1>
 
-            {this.state.users.map(user => <div key={user.id}>
-                <Link to={`/user/${user.id}`}> {user.name} </Link>
-              </div>)}
+          <div>{this.state.user.name}</div>
+          <div><Link to={`/users/${this.props.match.params.userId}/comments`}>Usercomments</Link></div>
           </div>;    
   }
 }

@@ -12,7 +12,7 @@ class HomePage extends Component {
     render() {
         return (
             <div><StyledHomePage>
-                <div><h1>Neighborhood Sleuth</h1></div>
+                <div><h1></h1></div>
             </StyledHomePage></div>    
         );
 

@@ -10,6 +10,9 @@ import UserInfo from "./components/UserInfo"
 import UserSignUp from "./components/UserSignUp"
 import LogInPage from "./components/LogInPage";
 import { Redirect } from "react-router-dom";
+import styled from 'styled-components';
+import CommentPage from "./components/CommentPage"
+
 
 
 
@@ -23,19 +26,20 @@ class App extends Component {
           <div className="App">
             <NavBar />
             <div>
-              <h1>Sleuth</h1>
+              <h1>Neighborhood Sleuth</h1>
               <div>
                 <div>
-                  <Link to="/">All Crimes</Link>
+          
                 </div>
               </div>
             </div>
             <div>
               <Switch>
                 <Route exact path="/" component={CrimesList} />
-                <Route exact path="/crime/:id" component={Crime} />
-                <Route exact path="/users" component={UserInfo} />
-               <Route exact path="/login" component={LogInPage} />
+                <Route exact path="/crime/:crimeId" component={Crime} />
+                <Route exact path="/users/:userId/Info" component={UserInfo} />
+              <Route exact path="/login" component={LogInPage} />
+              <Route exact path="/comment/UserId" component={CommentPage}/>
               </Switch>
             </div>
           </div>

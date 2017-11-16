@@ -16,6 +16,7 @@ class LogInPage extends Component {
     try {
       const res = await axios.get("/api/users");
       this.setState({ users: res.data });
+      
     } catch (err) {
       console.log(err);
     }
@@ -25,11 +26,11 @@ class LogInPage extends Component {
       return <div>
           <h1>Log-In</h1>
           <h3>Please Select an Existing User</h3>
-          {this.state.users.map(user => {
-            return <Link key={user.id} to={`/idea/${user.id}`}>
-                {user.userName}
-              </Link>;
-          })}
+        {this.state.users.map((user, index) => {
+          return <div>
+            <Link key={user._id} to={`/users/${user.id}/Info`}>{user.name}</Link>
+            </div>;    
+    })}
           <UserSignUp />
         </div>;
   }

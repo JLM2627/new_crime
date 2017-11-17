@@ -6,26 +6,39 @@ import styled from "styled-components";
 
 
 
-const Styling = styled.div`
-text-decoration: none;
-  font-family: 'Codystar',
-  color: white;
-`;
+
 
 
 const CrimeHeader = styled.div`
 font-family: "Codystar";
-font-size: 40px`;
+font-size: 40px;
+height: 20px;
+ display: flex;
+ padding-top: 50px;
+ padding-bottom: 20px;
+ justify-content: space-around;
+ align-items: center;
+ 
+ font-family: "Codystar";`
 
-const HeadLink = styled.a`
-//   text-decoration: none;
-//   font-family: 'Codystar',
-//   color: white;
-//   text-shadow: 2px 2px #72e0ff;
-//   margin: 10px;
-// `;
+const CrimeLinks = styled.div`
+text-decoration: none;
+display: flex;
+ padding-top: 50px;
+ padding-bottom: 20px;
+ justify-content: space-around;
+ align-items: center;
 
-// 
+ .CrimeLinks {
+/* text-decoration: none */
+font-family: 'Ubuntu Condensed';
+  font-size: 20px;
+  text-decoration: none;
+}
+ 
+ `;
+
+ 
 class CrimesList extends Component {
     constructor() {
         super();
@@ -60,9 +73,9 @@ class CrimesList extends Component {
             <div>
             <CrimeHeader>Crime Categories</CrimeHeader>
             {this.state.crimes.map(crime => 
-                <div key={crime.id}>
-                  <Link to={`/crimes/${crime.id}`}> {crime.title}</Link>
-                </div>
+                    <CrimeLinks> <div key={crime.id}>
+                  <Link className="CrimeLinks"to={`/crimes/${crime.id}`}> {crime.title}</Link>
+                </div></CrimeLinks>
                     )}
                     </div>
                     

@@ -15,6 +15,22 @@ import NewComment from './components/NewCommentToPost'
 import ViewComment from "./components/comments/CommentView"
 // import HomePage from "./components/HomePage"
 
+const Neighborhood = styled.div`
+height: 20px;
+  display: flex;
+  padding-top: 45px;
+  padding-bottom: 18px;
+  justify-content: space-around;
+  align-items: center;
+
+h1 {
+  font-family: 'Codystar';
+  font-size: 50px;
+}
+
+
+`
+
 
 
 
@@ -23,18 +39,17 @@ class App extends Component {
   render() {
 
     
-    return <MuiThemeProvider>
+    return(
+    <MuiThemeProvider>
         <Router>
           <div className="App">
-            <NavBar />
-            <div>
-              <h1>Neighborhood Sleuth</h1>
-              <div />
+           <div> <NavBar /></div>
+            <Neighborhood>
+              <h1> Neighborhood Sleuth</h1>
+              </Neighborhood>
 
-              <div>
-                <div />
-              </div>
-            </div>
+              
+            
             <div>
               <Switch>
                 {/* <Route exact path="/" component={HomePage} /> */}
@@ -46,10 +61,12 @@ class App extends Component {
                 <Route exact path="/users/:userId/comments/view" component={CommentPage} />
                 <Route exact path="/login" component={LogInPage} />
               </Switch>
-            </div>
           </div>
+          </div>
+
         </Router>
-      </MuiThemeProvider>;
+       </MuiThemeProvider>
+    )
   }
 
 }

@@ -3,7 +3,7 @@ import axios from "axios";
 import {Link} from 'react-router-dom'
 import NewCommentToPost from "./NewCommentToPost";
 import CommentPage from "./CommentPage"
-import RaisedButton from "material-ui/RaisedButton"
+import FlatButton from "material-ui/FlatButton"
 
 class Crime extends Component {
     constructor() {
@@ -44,14 +44,14 @@ class Crime extends Component {
               {this.state.crime.title}
               {this.state.crime.description}
               <Link to={`/crimes/${this.props.match.params.crimeId}/comments/create`}>
-                <RaisedButton label="Add Comment"/>{" "}
+                <FlatButton label="Add Comment"/>
               </Link>
               {this.state.comments.map(comment => <div key={comment.id}>
                   <h1>{comment.title}</h1>
                   <h4>{comment.description}</h4>
                   <div>
                     <Link to={`/crimes/${this.props.match.params.crimeId}/comments/${comment.id}/view`}>
-                      <RaisedButton label="Edit"/>
+                      <FlatButton label="Edit"/>
                     </Link>
                   </div>
                 </div>)}

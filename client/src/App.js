@@ -41,9 +41,9 @@ class App extends Component {
                 <Route exact path="/" component={CrimesList} />
                 <Route exact path="/crimes/:crimeId" component={Crime} />
                 <Route exact path="/crimes/:crimeId/comments/create" component={NewComment} />
-                <Route exact path="/crimes/:crimeId/comments/view" component={ViewComment} />
+                <Route exact path="/crimes/:crimeId/comments/:commentId/view" component={ViewComment} />
                 <Route exact path="/users/:userId/Info" component={UserInfo} />
-                <Route exact path="/users/:userId/comments" component={CommentPage} />
+                <Route exact path="/users/:userId/comments/view" component={CommentPage} />
                 <Route exact path="/login" component={LogInPage} />
               </Switch>
             </div>

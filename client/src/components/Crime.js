@@ -37,28 +37,26 @@ class Crime extends Component {
 
     
     render() {
-        return (
+        return <div>
             <div>
-            <div>
-                <h2>Crime</h2>
-                {this.state.crime.title}
-                    {this.state.crime.description}
-                    <Link to={`/crimes/${this.props.match.params.crimeId}/comments/create`}><button>Add Comment</button> </Link>   
-                {this.state.comments.map(comment => (
-                    <div key={comment.id}>
-                        <h1>{comment.title}</h1>
-                            <h4>{comment.description}</h4>   
-                            <div><Link to={`/crimes/${comment.id}/comments/view`}><button>Edit</button></Link></div>    
-                        
-                    </div>
-                ))}
-
+              <h2>Crime</h2>
+              {this.state.crime.title}
+              {this.state.crime.description}
+              <Link to={`/crimes/${this.props.match.params.crimeId}/comments/create`}>
+                <button>Add Comment</button>{" "}
+              </Link>
+              {this.state.comments.map(comment => <div key={comment.id}>
+                  <h1>{comment.title}</h1>
+                  <h4>{comment.description}</h4>
+                  <div>
+                    <Link to={`/crimes/${this.props.match.params.crimeId}/comments/${comment.id}/view`}>
+                      <button>Edit</button>
+                    </Link>
+                  </div>
+                </div>)}
             </div>
-            <div>
-                    {/* <CommentPage /> */}
-        </div>
-        </div>
-        );
+            <div>{/* <CommentPage /> */}</div>
+          </div>;
     }
 }
 

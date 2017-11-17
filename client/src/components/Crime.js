@@ -15,6 +15,8 @@ height: 20px;
   align-items: center;
   font-family: 'Ubuntu Condensed';
   font-size: 20px;
+  flex-direction: column;
+  margin-top: 50px;
 
   .span{
     align-items: center;
@@ -56,11 +58,11 @@ class Crime extends Component {
     render() {
         return <div>
             <div>
-              <h2>Crime</h2>
+              <p><h2>Find out about crime near you</h2></p>
               
-                <Title><div><span>  {this.state.crime.title}</span>
+                <Title><div> {this.state.crime.title}</div>
                     
-                {this.state.crime.description}</div></Title>
+               <div>{this.state.crime.description}</div></Title>
 
 
 

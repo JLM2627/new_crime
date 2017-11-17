@@ -4,18 +4,28 @@ import axios from 'axios';
 import styled from "styled-components";
 
 
-const H1 = styled.h1`
+
+
+const Styling = styled.div`
+text-decoration: none;
+  font-family: 'Codystar',
+  color: white;
+`;
+
+
+const CrimeHeader = styled.div`
 font-family: "Codystar";
 font-size: 40px`;
 
 const HeadLink = styled.a`
-  text-decoration: none;
-  font-family: 'Codystar',
-  color: white;
-  /* text-shadow: 2px 2px #72e0ff; */
-  margin: 10px;
-`;
+//   text-decoration: none;
+//   font-family: 'Codystar',
+//   color: white;
+//   text-shadow: 2px 2px #72e0ff;
+//   margin: 10px;
+// `;
 
+// 
 class CrimesList extends Component {
     constructor() {
         super();
@@ -46,17 +56,19 @@ class CrimesList extends Component {
             return <div>{this.state.error}</div>
         }
         return (
-                <div>
-                    <h1>Crime Categories</h1>
-                    {this.state.crimes.map(crime => (
-                        <div key={crime.id}>
-                            <Link to={`/crimes/${crime.id}`}> {crime.title}</Link>
+         
+            <div>
+            <CrimeHeader>Crime Categories</CrimeHeader>
+            {this.state.crimes.map(crime => 
+                <div key={crime.id}>
+                  <Link to={`/crimes/${crime.id}`}> {crime.title}</Link>
+                </div>
+                    )}
                     </div>
                     
-                ))}
-            </div>
-          
-        )}
+        
+    )
+    }
 }
 
 export default CrimesList;

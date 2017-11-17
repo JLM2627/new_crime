@@ -47,7 +47,8 @@ class Crime extends Component {
                 {this.state.comments.map(comment => (
                     <div key={comment.id}>
                         <h1>{comment.title}</h1>
-                        <h4>{comment.description}</h4>    
+                            <h4>{comment.description}</h4>   
+                            <div><Link to={`/crimes/${comment.id}/comments/view`}><button>Edit</button></Link></div>    
                         
                     </div>
                 ))}

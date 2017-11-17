@@ -12,6 +12,8 @@ import UserSignUp from "./components/UserSignUp"
 import LogInPage from "./components/LogInPage";
 import CommentPage from "./components/CommentPage"
 import NewComment from './components/NewCommentToPost'
+import ViewComment from "./components/comments/CommentView"
+// import HomePage from "./components/HomePage"
 
 
 
@@ -27,18 +29,21 @@ class App extends Component {
             <NavBar />
             <div>
               <h1>Neighborhood Sleuth</h1>
+              <div />
+
               <div>
                 <div />
               </div>
             </div>
             <div>
               <Switch>
+                {/* <Route exact path="/" component={HomePage} /> */}
                 <Route exact path="/" component={CrimesList} />
                 <Route exact path="/crimes/:crimeId" component={Crime} />
                 <Route exact path="/crimes/:crimeId/comments/create" component={NewComment} />
+                <Route exact path="/crimes/:crimeId/comments/view" component={ViewComment} />
                 <Route exact path="/users/:userId/Info" component={UserInfo} />
                 <Route exact path="/users/:userId/comments" component={CommentPage} />
-             
                 <Route exact path="/login" component={LogInPage} />
               </Switch>
             </div>

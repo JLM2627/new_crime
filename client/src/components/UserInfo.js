@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from "axios";
 import { Link } from "react-router-dom";
+ import NewCommentToPost from "./NewCommentToPost"
 
 class UserInfo extends Component {
   constructor() {
@@ -44,10 +45,11 @@ class UserInfo extends Component {
       }
         return <div>
             <h1>All Users</h1>
-
+          
           <div>{this.state.user.name}</div>
-          <div><Link to={`/users/${this.props.match.params.userId}/comments`}>Usercomments</Link></div>
-          </div>;    
+          <div><Link to={`/users/${this.props.match.params.userId}/comments`}>User comments</Link></div>
+      </div>;    
+      // <NewCommentToPost/>
   }
 }
 

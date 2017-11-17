@@ -1,79 +1,91 @@
 import React, { Component } from 'react';
 import axios from "axios";
-import styled from "styled-components";
-import CommentsList from './CommentsList'
-import { FlatButton } from "material-ui/FlatButton";
+import CommentsList from "./CommentsList"
+import TextField from "material-ui/TextField";
+import FlatButton from "material-ui/FlatButton";
 
 class CommentPage extends Component {
   state = {
-    user: {
-      name: "",
-      password: "",
+    crime: {
+      title: "",
+      description: "",
       comments: []
-    }
+    },
+    comment: {}
   };
-  // /GET    /api/users/:id(.:format)                   api/users#show
+  //creating a comment
+
+  //
   async componentWillMount() {
-    const { userId } = this.props.match.params;
-    const res = await axios.get(`/api/users/${userId}`);
-    this.setState({ user: res.data });
+    try {
+      const crimeId = this.props.match.params.crimeId;
+      const res = await axios.get(`/api/crime/${crimeId}`);
+      this.setState({ crime: res.data });
+      console.log(crimeId);
+      console.log(res.data);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
-  // Create a Post for Comment
-  // Create onClick that creates an empty Comment
-  // POST   /api/users/:user_id/comments(.:format)     api/comments#create
   createNewComment = async () => {
-    const { userId } = this.props.match.params;
-    const res = await axios.post(`/api/users/${userId}/comments`);
+    const { crimeId } = this.props.match.params;
+    const res = await axios.post(`/api/crimes/${crimeId}/comments`);
     console.log(res.data);
-    this.setState({ user: res.data });
+    this.setState({ crime: res.data });
   };
-// DELETE /api/users/:user_id/comments/:id(.:format) api/comments#destroy
+
   deleteComment = async commentId => {
-    const { userId } = this.props.match.params;
+    const { crimeId } = this.props.match.params;
     const id = commentId;
-    const res = await axios.delete(`/api/users/${userId}/comments/${id}`);
-    this.setState({ user: res.data });
+    const res = await axios.delete(`/api/crimes/${crimeId}/comments/${id}`);
+    this.setState({ crime: res.data });
   };
 
-  handleChange = (event, commentId) => {
-    const attribute = event.target.name;
-    const clonedUser = { ...this.state.user };
-    const comment = clonedUser.comments.find(i => i.id === commentId);
-    console.log(comment);
-    comment[attribute] = event.target.value;
-    this.setState({ user: clonedUser });
-    console.log(this.state.user);
-  };
+  // handleChange = (event, commentId) => {
+  //   const attribute = event.target.name;
+  //   const clonedCrime = { ...this.state.crime };
+  //   const comment = clonedCrime.comments.find(i => i.id === commentId);
+  //   console.log(comment);
+  //   comment[attribute] = event.target.value;
+  //   this.setState({ crime: clonedCrime });
+  // };
+  
 
-  // PATCH  /api/users/:user_id/comments/:id(.:format) api/comments#update
-  updateComment = async commentId => {
-    const { userId } = this.props.match.params;
-    const id = commentId;
 
-    const clonedUser = { ...this.state.user };
-    const comment = clonedUser.comments.find(i => i.id === commentId);
+  // updateComment = async commentId => {
+  //   const { crimeId } = this.props.match.params;
+  //   const id = commentId;
 
-    const res = await axios.patch(`/api/users/${userId}/comments/${id}`, {
-      comment: comment
-    });
-    this.setState({ user: res.data });
-  };
+  //   const clonedCrime = { ...this.state.crime };
+  //   const comment = clonedCrime.comments.find(i => i.id === commentId);
 
-  render() {
-    return (
-      <div>
-        <h1>{this.state.user.name}'s comments</h1>
-        <FlatButton onClick={this.createNewComment} />
-        <CommentsList
-          comments={this.state.user.comments}
-          handleChange={this.handleChange}
-          deleteIdea={this.deleteIdea}
-          updateIdea={this.updateIdea}
-        />
-      </div>
-    );
-  }
-}
+  //   const res = await axios.patch(`/api/crimes/${crimeId}/comments/${id}`, {
+  //     comment: comment
+  //   });
+  //   this.setState({ crime: res.data });
+  // };
+
+      render() {
+
+        return (
+          <div>
+            <div> <h1>{this.state.crime.title}</h1> </div>
+            {/* <button onClick={this.createNewComment}>New Crime Comment</button> */}
+            <CommentsList
+              comments={this.state.crime.comments}
+              handleChange={this.handleChange}
+              deleteComment={this.deleteComment}
+              updateComment={this.updateComment}
+            />
+            
+           
+            </div>
+            );
+    
+        
+      }   
+
+}            
 
 export default CommentPage;

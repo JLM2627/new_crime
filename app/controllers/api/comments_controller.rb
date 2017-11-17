@@ -1,7 +1,7 @@
 class Api::CommentsController < ApplicationController
 
     def index
-        @comments = User.find(params[:user_id]).comments
+        @comments = Crime.find(params[:crime_id]).comments
        
         #  @comments = Comment.all 
         render json: @comments
@@ -13,11 +13,11 @@ class Api::CommentsController < ApplicationController
     end
 
     def create
-      @user = User.find(params[:user_id])
-      @comment = Comment.new(comment_params)
+      @crime = Crime.find(params[:crime_id])
+      @comment = @crime.comments.new(comment_params)
 
-      @user.comments << @comment
-      @user.save!
+      @crime.comments << @comment
+      @crime.save!
 
       render json: @comment
    

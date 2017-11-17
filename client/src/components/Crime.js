@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from "axios";
+import {Link} from 'react-router-dom'
 import NewCommentToPost from "./NewCommentToPost";
+import CommentPage from "./CommentPage"
 
 class Crime extends Component {
     constructor() {
@@ -12,12 +14,14 @@ class Crime extends Component {
     }
 
     componentWillMount() {
+        console.log('mounting')
         const crimeId = this.props.match.params.id;
         this.grabCrime(crimeId)
     }
 
     grabCrime = async (crimeId) => {
         try {
+            const crimeId = this.props.match.params.crimeId
             const crimeResponse = await axios.get(`/api/crimes/${crimeId}`)
             console.log(crimeResponse.data)
             await this.setState({
@@ -31,9 +35,6 @@ class Crime extends Component {
         }
     }
 
-        // try {
-        //     const crimeId = this.props.match.params.cityId
-        // }
     
     render() {
         return (
@@ -41,7 +42,8 @@ class Crime extends Component {
             <div>
                 <h2>Crime</h2>
                 {this.state.crime.title}
-                {this.state.crime.description}
+                    {this.state.crime.description}
+                    <Link to={`/crimes/${this.props.match.params.crimeId}/comments/create`}><button>Add Comment</button> </Link>   
                 {this.state.comments.map(comment => (
                     <div key={comment.id}>
                         <h1>{comment.title}</h1>
@@ -52,7 +54,7 @@ class Crime extends Component {
 
             </div>
             <div>
-                    <NewCommentToPost crimeId={this.props.match.params.id}/>
+                    {/* <CommentPage /> */}
         </div>
         </div>
         );

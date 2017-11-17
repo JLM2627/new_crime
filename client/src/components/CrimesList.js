@@ -39,24 +39,28 @@ class CrimesList extends Component {
             await this.setState({ error: err.message })
             return err.message
         }
-    }
+    };
     render() {
 
         if (this.state.error) {
             return <div>{this.state.error}</div>
         }
         return (
-            <div>
-                <H1>Crime Categories</H1>
-                {this.state.crimes.map(crime => (
-                    <div key={crime.id}>
-                        <Link to={`/crime/${crime.id}`} >{crime.title}</Link>
+                <div>
+                    <h1>Crime Categories</h1>
+                    {this.state.crimes.map(crime => (
+                        <div key={crime.id}>
+                            <Link to={`/crimes/${crime.id}`}> {crime.title}</Link>
                     </div>
+                    
                 ))}
-                
             </div>
-        );
-    }
+          
+        )}
 }
 
 export default CrimesList;
+
+
+// removed from link
+// {`/crime/${crime.id}`} >{crime.title}

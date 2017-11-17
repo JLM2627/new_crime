@@ -14,9 +14,10 @@ class Api::CrimesController < ApplicationController
   def show
     @crime = Crime.find(params[:id])
     @comments = @crime.comments
+   
     render json: {
-        crime: @crime,
-        comments: @comments
+      crime: @crime,
+      comments: @comments
   }
   end
 

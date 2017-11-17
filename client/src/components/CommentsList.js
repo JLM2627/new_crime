@@ -5,7 +5,7 @@ const CommentsList = (props) => {
     return (
         props.comments.map((comment) => {
             return (
-                <Comment key={comment.id} id={comment.id}
+                <Comment key={comment.id} id={comment.crimeId}
                     handleChange={props.handleChange}
                     updateComment={props.updateComment} deleteComment={props.deleteComment}
                 title={comment.title} description={comment.description}/>

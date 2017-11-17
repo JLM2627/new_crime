@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
-import {Redirect} from "react-router-dom"
-
+import { Redirect } from "react-router-dom"
+import TextField from "material-ui/TextField"
+import FlatButton from "material-ui/FlatButton"
 class CommentView extends Component {
   state = {
     comment: {},
@@ -49,15 +50,13 @@ class CommentView extends Component {
           return <Redirect to={`/crimes/${this.props.match.params.crimeId}`} />
       }
     return (
-      < div style = {
-        {
-          margin: "10px"
-        }
-      } >
-            <div><h1>Comment View</h1></div>
-            <div>Title: <input onChange={this.handleChange} name="title" value={this.state.comment.title} /></div>
-            <div>Description: <input onChange={this.handleChange} name="description" value={this.state.comment.description} /></div>
-            <div><button onClick={this.editComment}>Edit</button><button onClick={this.deleteComment}>Delete</button></div>
+      <div style={{ margin: "10px" }}>
+        <div><h1>Comment View</h1></div>
+        
+            <div>Title: <TextField onChange={this.handleChange} name="title" value={this.state.comment.title} /></div>
+            <div>Description: <TextField onChange={this.handleChange} name="description" value={this.state.comment.description} /></div>
+        <div><FlatButton onClick={this.editComment} label="Edit"/></div>
+        <div><FlatButton onClick={this.deleteComment} label="delete"/></div>
             
       </div>
     );

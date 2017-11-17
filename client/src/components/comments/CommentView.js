@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import {Redirect} from "react-router-dom"
 
 class CommentView extends Component {
   state = {
@@ -35,14 +36,18 @@ class CommentView extends Component {
     );
     this.setState({ redirectToCrime: true });
   };
-  editComment = async () => {
-    const crimeId = this.props.match.params.crimeId;
-    const commentId = this.props.match.params.commentId;
-    const res = await axios.patch(
-      `/api/crimes/${crimeId}/comments/${commentId}`
-    );
+    editComment = async () => {
+        const crimeId = this.props.match.params.crimeId;
+        const commentId = this.props.match.params.commentId;
+        const res = await axios.patch(
+            `/api/crimes/${crimeId}/comments/${commentId}`, {comment: this.state.comment}
+        );
+        this.setState({ redirectToCrime: true});    
   };
-  render() {
+    render() {
+        if (this.state.redirectToCrime) {
+          return <Redirect to={`/crimes/${this.props.match.params.crimeId}`} />
+      }
     return (
       <div>
             <div><h1>Comment View</h1></div>

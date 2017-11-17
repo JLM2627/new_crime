@@ -24,15 +24,16 @@ class Api::CommentsController < ApplicationController
   end
 
     def update
-        @comment = Comment.find(params[:id])
-        @comment.update!(comment_params)
-
-        render json: @comment
+         @comment = Comment.find(params[:id])
+         @comment.update!(comment_params)
+        puts "Phrasing...Boom!"
+         render json: @comment
     end
 
        def destroy
         @comment = Comment.find(params[:id]).delete
         render status: :ok
+    
     end
 
        private

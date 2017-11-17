@@ -4,6 +4,22 @@ import {Link} from 'react-router-dom'
 import NewCommentToPost from "./NewCommentToPost";
 import CommentPage from "./CommentPage"
 import FlatButton from "material-ui/FlatButton"
+import styled from "styled-components";
+
+
+const Title = styled.div`
+height: 20px;
+  display: flex;
+  padding-bottom: 18px;
+  justify-content: space-around;
+  align-items: center;
+  font-family: 'Ubuntu Condensed';
+  font-size: 20px;
+
+  .span{
+    align-items: center;
+  }
+`
 
 class Crime extends Component {
     constructor() {
@@ -41,10 +57,15 @@ class Crime extends Component {
         return <div>
             <div>
               <h2>Crime</h2>
-              {this.state.crime.title}
-              {this.state.crime.description}
+              
+                <Title><div><span>  {this.state.crime.title}</span>
+                    
+                {this.state.crime.description}</div></Title>
+
+
+
               <Link to={`/crimes/${this.props.match.params.crimeId}/comments/create`}>
-                <FlatButton label="Add Comment"/>
+                <FlatButton label="Add Comment"/>{" "}
               </Link>
               {this.state.comments.map(comment => <div key={comment.id}>
                   <h1>{comment.title}</h1>
@@ -56,7 +77,7 @@ class Crime extends Component {
                   </div>
                 </div>)}
             </div>
-            <div>{/* <CommentPage /> */}</div>
+           
           </div>;
     }
 }

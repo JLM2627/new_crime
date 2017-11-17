@@ -49,7 +49,11 @@ class CommentView extends Component {
           return <Redirect to={`/crimes/${this.props.match.params.crimeId}`} />
       }
     return (
-      <div>
+      < div style = {
+        {
+          margin: "10px"
+        }
+      } >
             <div><h1>Comment View</h1></div>
             <div>Title: <input onChange={this.handleChange} name="title" value={this.state.comment.title} /></div>
             <div>Description: <input onChange={this.handleChange} name="description" value={this.state.comment.description} /></div>

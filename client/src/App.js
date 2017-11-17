@@ -22,10 +22,19 @@ height: 20px;
   padding-bottom: 18px;
   justify-content: space-around;
   align-items: center;
+  flex-direction: column;
 
 h1 {
   font-family: 'Codystar';
   font-size: 50px;
+}
+
+h2 { 
+  font-family: 'Codystar';
+  margin-top: -20px;
+  margin-bottom: 20px;
+  font-size: 20px;
+  align-items: center;
 }
 
 
@@ -46,6 +55,7 @@ class App extends Component {
            <div> <NavBar /></div>
             <Neighborhood>
               <h1> Neighborhood Sleuth</h1>
+              <h2>If you see something, say something</h2>
               </Neighborhood>
 
               

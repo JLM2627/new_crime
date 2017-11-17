@@ -58,7 +58,7 @@ class Crime extends Component {
     render() {
         return <div>
             <div>
-              <p><h2>Find out about crime near you</h2></p>
+             
               
                 <Title><div> {this.state.crime.title}</div>
                     

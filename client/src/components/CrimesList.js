@@ -71,7 +71,7 @@ class CrimesList extends Component {
         return (
          
             <div>
-            <CrimeHeader>Crime Categories</CrimeHeader>
+            <CrimeHeader>Crimes List Page</CrimeHeader>
             {this.state.crimes.map(crime => 
                     <CrimeLinks> <div key={crime.id}>
                   <Link className="CrimeLinks"to={`/crimes/${crime.id}`}> {crime.title}</Link>

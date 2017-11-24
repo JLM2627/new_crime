@@ -35,7 +35,7 @@ class NavBar extends Component {
               </h4>
             </div>
             <div>
-              <HeadLink href={"/"}>All Crimes</HeadLink>
+              <HeadLink href="/crimes">All Crimes</HeadLink>
             </div>
             <div>
               

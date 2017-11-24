@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import axios from "axios";
 import {Link} from 'react-router-dom'
 import NewCommentToPost from "./NewCommentToPost";
@@ -6,8 +6,7 @@ import CommentPage from "./CommentPage"
 import FlatButton from "material-ui/FlatButton"
 import styled from "styled-components";
 
-
-const Title = styled.div`
+const Title = styled.div `
 height: 20px;
   display: flex;
   padding-bottom: 18px;
@@ -38,51 +37,55 @@ class Crime extends Component {
         this.grabCrime(crimeId)
     }
 
-    grabCrime = async (crimeId) => {
+    grabCrime = async(crimeId) => {
         try {
             const crimeId = this.props.match.params.crimeId
             const crimeResponse = await axios.get(`/api/crimes/${crimeId}`)
             console.log(crimeResponse.data)
-            await this.setState({
-                crime: crimeResponse.data.crime,
-                comments: crimeResponse.data.comments
-            });
-        }
-        catch (error) {
+            await this.setState({crime: crimeResponse.data.crime, comments: crimeResponse.data.comments});
+        } catch (error) {
             console.log(error)
             await this.setState({error: error.message})
         }
     }
 
-    
     render() {
         return <div>
             <div>
-             
-              
-                <Title><div> {this.state.crime.title}</div>
-                    
-               <div>{this.state.crime.description}</div></Title>
 
+                <Title>{this.state.crime.title}
 
+               
+                    <p>{this.state.crime.description}</p>
+                </Title>
 
-              <Link to={`/crimes/${this.props.match.params.crimeId}/comments/create`}>
-                <FlatButton label="Add Comment"/>{" "}
-              </Link>
-              {this.state.comments.map(comment => <div key={comment.id}>
-                  <h1>{comment.title}</h1>
-                  <h4>{comment.description}</h4>
-                  <div>
-                    <Link to={`/crimes/${this.props.match.params.crimeId}/comments/${comment.id}/view`}>
-                      <FlatButton label="Edit"/>
+                <a>
+                    <Link to={`/crimes/${this.props.match.params.crimeId}/comments/create`}>
+                        <FlatButton label="Add Comment"/>{" "}
                     </Link>
-                  </div>
-                </div>)}
+                </a>
+
+                {this
+                    .state
+                    .comments
+                    .map(comment => <div key={comment.id}>
+                        <h1>{comment.title}</h1>
+                        <h4>{comment.description}</h4>
+
+                        <a>
+                            <Link
+                                to={`/crimes/${this.props.match.params.crimeId}/comments/${comment.id}/view`}>
+                                <FlatButton label="Edit"/>
+                            </Link>
+                        </a>
+
+                    </div>)}
             </div>
-           
-          </div>;
+
+        </div>;
     }
 }
 
 export default Crime;
-{/* <div><FlatButton onClick={this.editComment} label="Edit"/></div> */}
+{/* <div><FlatButton onClick={this.editComment} label="Edit"/></div> */
+}

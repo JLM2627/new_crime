@@ -104,6 +104,7 @@ height: 250px;
 h1{
 	text-align:left;
 	font-family: monospace;
+	text-decoration: underline;
 	font-size: 20px;
 }
 `

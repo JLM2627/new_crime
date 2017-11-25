@@ -97,10 +97,11 @@ background-size: cover;
 /* opacity: .3; */
 border: 5px double white;
 margin: 50px;
+margin-bottom: 0;
 padding: 20px;
 text-align: center;
 width: 250px;
-height: 250px;
+height: 380px;
 h1{
 	text-align:left;
 	font-family: monospace;
@@ -170,6 +171,7 @@ class Crime extends Component {
 							 <div key={comment.id}>
                				 	<h1>{comment.title}</h1>
                 			 	<h4>{comment.description}</h4>
+								 
 							</div>
 						</CommentDisplay>
 						</div>

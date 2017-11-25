@@ -51,12 +51,12 @@ class CommentView extends Component {
       }
     return (
       <div style={{ margin: "10px" }}>
-        <div><h1>Comment View</h1></div>
+        <div><h1>Update Comment Below</h1></div>
         
             <div>Title: <TextField onChange={this.handleChange} name="title" value={this.state.comment.title} /></div>
             <div>Description: <TextField onChange={this.handleChange} name="description" value={this.state.comment.description} /></div>
-        <div><FlatButton onClick={this.editComment} label="Edit"/></div>
-        <div><FlatButton onClick={this.deleteComment} label="delete"/></div>
+        <div><FlatButton onClick={this.editComment} label="Submit"/></div>
+        {/* <div><FlatButton onClick={this.deleteComment} label="delet"/></div> */}
             
       </div>
     );

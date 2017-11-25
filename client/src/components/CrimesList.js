@@ -10,15 +10,11 @@ import styled from "styled-components";
 
 
 const CrimeHeader = styled.div`
+padding: 100px 0 0 0;
+text-align: center;
 font-family: "Codystar";
-font-size: 40px;
-height: 20px;
- display: flex;
- padding-top: 50px;
- padding-bottom: 20px;
- justify-content: space-around;
- align-items: center;
- 
+font-size: 38px;
+color: black;
  font-family: "Codystar";`
 
 const CrimeLinks = styled.div`
@@ -33,6 +29,7 @@ display: flex;
 /* text-decoration: none */
 font-family: 'Ubuntu Condensed';
   font-size: 20px;
+  color: black;
   text-decoration: none;
 }
  

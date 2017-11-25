@@ -25,7 +25,7 @@ const Comment = (props) => {
     return <div>
         <input onBlur={updateComment} onChange={handleChange} name="title" value={props.title} />
         <textarea onBlur={updateComment} onChange={handleChange} name="description" value={props.description} />
-        <FlatButton onClick={deleteComment}>Delete Comment</FlatButton>
+        <FlatButton onClick={deleteComment}>Delete t</FlatButton>
       </div>;
 }
 

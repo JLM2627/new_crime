@@ -4,27 +4,74 @@ import axios from 'axios';
 import styled from "styled-components";
 
 
+const CrimeHeader = styled.div`
+width: auto;
+height: auto;
+display: flex;
+flex-direction: column;
+margin-right: 500px;
+margin-left: 500px;
+align-items: center;
+
+h1 {
+    position: relative;
+    font-size: 30px;
+    z-index: 1;
+    /* overflow: hidden; */
+    text-align: center;
+}
+h1:before, h1:after {
+    position: absolute;
+    top: 51%;
+    overflow: hidden;
+    width: 50%;
+    height: 1px;
+    content: '\a0';
+    background-color: red;
+}
+h1:before {
+    margin-left: -50%;
+    text-align: right;
+}
+.color {
+    background-color: #ccc;
+}
+ h1 {
+    position: relative;
+	margin-top: 150px;
+    font-size: 30px;
+    text-align: center;
+} 
+h2{
+	font-family: 'Roboto Mono', monospace;
+	text-align: center;
+    font-size: 25px;
+    padding: 1px;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+
+}
+`
+
 const PageWrapper = styled.div `
-font-weight: bold;
 background-image: url(https://i.imgur.com/8f6j1Va.png);
 img.resize {
     width: 100%;
 	height: auto;
 } 
-	background-color: (255 ,255, 255, .5);
-	width: 100vw;
-	height: auto;
-	display: flex;
-	justify-content: space-around;
-	flex-wrap: wrap;
-	align-content: center;
-	/* opacity: 0.3;
-filter: alpha(opacity=30); */
-	`
+border: 2px solid black;
+position: relative;
+margin: 100px;
+padding: 75px;
+font-weight: bold;
+display: flex;
+justify-content: space-around;
+
+`
 
 
 const CrimeWrapper = styled.div`
- display: flex;
+display: flex;
 justify-content: space-around;
 `
 
@@ -34,52 +81,35 @@ height: auto;
 display: flex;
 flex-direction: row;
 flex-wrap: wrap;
- margin: 15px;
-`
-const CrimeHeader = styled.div`
+ /* margin: 15px; */
 `
 
+
 const CrimeDisplay = styled.div`
-/* background-color: transparent; */
-/* background-image: url(https://i.imgur.com/8f6j1Va.png);
-img.resize {
-    width: 100%;
-	height: auto;
-}  */
-background-size: auto auto;
-/* background: rgba(255, 255, 255, 0.3); */
-/* background-size: cover; */
-/* opacity: .3; */
-/* border: 50px black; */
-margin: 50px;
+background-size: auto auto;/
 margin-bottom: 0;
-padding: 20px;
 text-align: center;
 width: 300px;
 height: 300px;
-border: 50px black;
+border: 5px black;
 `
 
 const CrimeLinks = styled.div`
 background-size: 50px;
 text-decoration: none;
 display: flex;
- padding-top: 50px;
+ padding-top: 100px;
  padding-bottom: 20px;
  justify-content: space-around;
  align-items: center;
  .CrimeLinks {
-	   font-weight: bold;
-/* text-decoration: none */
-font-family: 'Ubuntu Condensed';
-  font-size: 40px;
-  text-decoration: none;
-  font-weight: 700;
-  color: black;
-  font-weight: 700;
-}
- 
- `;
+	font-weight: bold;
+	font-family: 'Ubuntu Condensed';
+  	font-size: 40px;
+  	text-decoration: none;
+  	color: black;
+  	font-weight: 700;
+}`;
 
 
  
@@ -113,6 +143,14 @@ class CrimesList extends Component {
             return <div>{this.state.error}</div>
         }
         return (
+			<div>
+		<div> 
+			<CrimeHeader>
+				<h1>Choose Crime Category Below</h1>
+				<h2>View and Comment on Crimes</h2>
+			</CrimeHeader>
+			</div>
+			<div>
 			<PageWrapper>
 			<CrimeWrapper>
          
@@ -140,8 +178,9 @@ class CrimesList extends Component {
 				</Crimes>
 			 </CrimeWrapper>
 			 </PageWrapper>
+			 </div>
                     
-        
+        </div>
     )
     }
 }

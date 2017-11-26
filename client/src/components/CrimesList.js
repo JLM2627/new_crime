@@ -5,21 +5,22 @@ import styled from "styled-components";
 
 
 const PageWrapper = styled.div `
+font-weight: bold;
 background-image: url(https://i.imgur.com/8f6j1Va.png);
 img.resize {
     width: 100%;
 	height: auto;
 } 
 
-
+	background-color: (255 ,255, 255, .5);
 	width: 100vw;
 	height: auto;
 	display: flex;
 	justify-content: space-around;
 	flex-wrap: wrap;
 	align-content: center;
-	opacity: 0.3;
-filter: alpha(opacity=30);
+	/* opacity: 0.3;
+filter: alpha(opacity=30); */
 
 	`
 

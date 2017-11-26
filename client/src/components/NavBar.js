@@ -41,11 +41,11 @@ class NavBar extends Component {
             <div>
               <HeadLink href="/crimes">All Crimes</HeadLink>
             </div>
-            {/* <div>
+            <div>
               
-                <HeadLink href="/login">Login</HeadLink>
+                {/* <HeadLink href="/login">Login</HeadLink> */}
               
-            </div> */}
+            </div>
           </StyledNavBar>;
     }
 }

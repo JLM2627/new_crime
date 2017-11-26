@@ -10,8 +10,9 @@ class NewCommentToPost extends Component {
       title: "",
       description: ""
     },
-    refresh: false,
-    redirectToCrimePage: false
+    // refresh: false,
+    redirectToCrimePage: false,
+	flashError: false
   };
 
   handleChange = async event => {
@@ -36,8 +37,9 @@ class NewCommentToPost extends Component {
       console.log(res);
       // this.setState({refresh: true})
     } catch (error) {
-      // this.setState({ flashError: true });
+    this.setState({ flashError: true });
       console.log(this.state.comment);
+	  console.log(this.state.flashError);
     }
   };
 
@@ -45,6 +47,11 @@ class NewCommentToPost extends Component {
     if (this.state.redirectToCrimePage) {
       return <Redirect to={`/crimes/${this.props.match.params.crimeId}`} />
     }
+
+	 if(this.state.flashError){
+            let div = document.getElementById("flash")
+            div.style.display = "block"
+        }
     return (
       <div style={{ margin: "10px" }}>
         <h1>New Comment</h1>

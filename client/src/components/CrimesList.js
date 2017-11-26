@@ -68,7 +68,8 @@ class CrimesList extends Component {
         return (
          
             <div>
-            <CrimeHeader>Crimes List Page</CrimeHeader>
+            <CrimeHeader><h1>Crime Categories</h1>
+			<h2>Select </h2></CrimeHeader>
             {this.state.crimes.map(crime => 
                     <CrimeLinks> <div key={crime.id}>
                   <Link className="CrimeLinks"to={`/crimes/${crime.id}`}> {crime.title}</Link>
@@ -86,3 +87,6 @@ export default CrimesList;
 
 // removed from link
 // {`/crime/${crime.id}`} >{crime.title}
+
+
+//   <Link className="CrimeLinks"to={`/crimes/${crime.id}`}> {crime.title}</Link>

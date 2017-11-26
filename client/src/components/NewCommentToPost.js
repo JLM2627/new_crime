@@ -70,7 +70,7 @@ class NewCommentToPost extends Component {
     return (
 		<PageWrapper>
       <div>
-        <h1>Report Crime Tip</h1>
+        <h1>Post Crime Tip Below</h1>
 	
 
 

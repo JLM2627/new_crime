@@ -5,23 +5,21 @@ import styled from "styled-components";
 const StyledNavBar = styled.div`
   height: 20px;
   display: flex;
-  padding: 10px;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: center; /* align horizontal */
+align-items: center;
   background: rgba(255, 255, 255, 0.7);
   font-family: "Codystar";
+
 
 `;
 
 const HeadLink = styled.a`
- padding: 50px 0;
-  text-decoration: none;
+padding: 10px;
+ text-decoration: none;
+  display: inline;
+  line-height: normal;
   font-family: 'Codystar',
   color: white;
-  /* margin-top: 50px; */
-  vertical-align: bottom;
-  /* text-shadow: 2px 2px #72e0ff; */
-  /* margin-top: 10px; */
 `;
 
 

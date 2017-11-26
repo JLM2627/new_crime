@@ -9,8 +9,8 @@ width: auto;
 height: auto;
 display: flex;
 flex-direction: column;
-margin-right: 500px;
-margin-left: 500px;
+/* margin-right: 500px;
+margin-left: 500px; */
 align-items: center;
 
 h1 {

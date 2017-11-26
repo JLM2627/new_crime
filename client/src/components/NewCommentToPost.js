@@ -3,6 +3,21 @@ import axios from "axios";
 import {Redirect} from 'react-router-dom'
 import TextField from "material-ui/TextField";
 import FlatButton from "material-ui/FlatButton";
+import styled from 'styled-components';
+
+const PageWrapper = styled.div`
+display: flex;
+flex-direction: column;
+position: relative;
+margin: auto;
+  top: 200px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 500px;
+  height: 500px;
+  align-items: center; 
+` 
 
 class NewCommentToPost extends Component {
   state = {
@@ -53,22 +68,31 @@ class NewCommentToPost extends Component {
             div.style.display = "block"
         }
     return (
-      <div style={{ margin: "10px" }}>
-        <h1>New Comment</h1>
-        <form onSubmit={this.handleSubmit}>
+		<PageWrapper>
+      <div>
+        <h1>Report Crime Tip</h1>
+	
+
+
+
+        <form onSubmit={this.handleSubmit} style = {{width: 100}}>
           <div>
-            <label htmlFor="title">Comment Title: </label>
+            <label htmlFor="title">Title:
+			</label>
             <TextField
-              onChange={this.handleChange}
-              name="title"
-              type="text"
-              value={this.state.comment.title}
+				onChange={this.handleChange}
+              	name="title"
+              	type="text"
+              	value={this.state.comment.title}
             />
           </div>
           <div>
             <label htmlFor="description" />
             <textarea
-              placeholder="Comment Here"
+			 rows={10}
+            multiLine={true}
+			fullWidth={true}
+              placeholder="Type Comment Here"
               onChange={this.handleChange}
               name="description"
               type="text"
@@ -80,7 +104,11 @@ class NewCommentToPost extends Component {
             Please fill out all fields
           </div>
         </form>
+
+
+
       </div>
+	  </PageWrapper>
     );
   }
 }

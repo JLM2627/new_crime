@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import styled from "styled-components";
 
 
@@ -21,13 +22,17 @@ align-items: center;
 
 `;
 
-const HeadLink = styled.a`
+const LinkDescription = styled.a`
 padding: 10px;
+box-shadow: none;
  text-decoration: none;
   display: inline;
   line-height: normal;
   font-family: 'Codystar',
   color: white;
+  .a{
+	text-decoration: none !important;
+  }
 `;
 
 
@@ -41,17 +46,13 @@ class NavBar extends Component {
         return <StyledNavBar>
             <div>
            
-                <HeadLink href={"/"}>Sleuth</HeadLink>
-            
+                <LinkDescription><Link to={"/"} style={{ textDecoration: 'none' }}><a>Sleuth</a></Link></LinkDescription>
+              <LinkDescription><Link to="/crimes"style={{ textDecoration: 'none' }}>All Crimes</Link></LinkDescription>
             </div>
-            <div>
-              <HeadLink href="/crimes">All Crimes</HeadLink>
-            </div>
-            <div>
+           
               
                 {/* <HeadLink href="/login">Login</HeadLink> */}
-              
-            </div>
+           
           </StyledNavBar>;
     }
 }

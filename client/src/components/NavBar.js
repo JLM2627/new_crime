@@ -3,12 +3,20 @@ import styled from "styled-components";
 
 
 const StyledNavBar = styled.div`
-  height: 20px;
-  display: flex;
+width: 100%;
+display: flex;
+flex-direction: row;
+justify-content: flex-end;
+ 
+   font-family: 'Josefin Slab';
+   background: rgba(255, 255, 255, 0.7);
+/width: 100%;
+  /* height: 20px;
+  display: flex; */
   justify-content: center; /* align horizontal */
 align-items: center;
   background: rgba(255, 255, 255, 0.7);
-  font-family: "Codystar";
+  font-family: "Codystar"; */ */
 
 
 `;

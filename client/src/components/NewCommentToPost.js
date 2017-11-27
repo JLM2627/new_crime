@@ -6,18 +6,23 @@ import FlatButton from "material-ui/FlatButton";
 import styled from 'styled-components';
 
 const PageWrapper = styled.div`
-display: flex;
-flex-direction: column;
-position: relative;
 margin: auto;
-  top: 200px;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 500px;
-  height: 500px;
-  align-items: center; 
+   width: 50%;
+   margin-top: 100px;
+/* margin: auto;
+    width: 50%; */
+	/* text-align: center; */
+ /* display: flex;
+
+position: relative; */
+  
 ` 
+
+const Form = styled.div`
+position: 'relative';
+marginLeft: '50%';
+
+`
 
 class NewCommentToPost extends Component {
   state = {
@@ -63,23 +68,22 @@ class NewCommentToPost extends Component {
       return <Redirect to={`/crimes/${this.props.match.params.crimeId}`} />
     }
 
-	 if(this.state.flashError){
-            let div = document.getElementById("flash")
-            div.style.display = "block"
-        }
     return (
 		<PageWrapper>
       <div>
         <h1>Post Crime Tip Below</h1>
 	
 
+<Form>
 
-
-        <form onSubmit={this.handleSubmit} style = {{width: 100}}>
+        <form onSubmit={this.handleSubmit} >
           <div>
             <label htmlFor="title">Title:
 			</label>
             <TextField
+			
+      
+			style={{ alignSelf: 'flex-start', position: 'relative'}}
 				onChange={this.handleChange}
               	name="title"
               	type="text"
@@ -91,7 +95,8 @@ class NewCommentToPost extends Component {
             <textarea
 			 rows={10}
             multiLine={true}
-			fullWidth={true}
+			
+	style={{}}
               placeholder="Type Comment Here"
               onChange={this.handleChange}
               name="description"
@@ -99,11 +104,13 @@ class NewCommentToPost extends Component {
               value={this.state.comment.description}
             />
           </div>
-          <FlatButton label="submit" type="submit" />
-          <div id="flash" style={{ color: "red", display: "none" }}>
-            Please fill out all fields
+          <FlatButton
+		  style={{}}
+		   label="submit" type="submit" />
+          <div id="flash" >
           </div>
         </form>
+		</Form>
 
 
 

@@ -10,14 +10,40 @@ import styled from 'styled-components';
 
 
 const CommentPageWrapper = styled.div`
+width: 100vw;
+height: auto;
+display: flex;
+justify-content: space-around;
+flex-wrap: wrap;
+align-content: center;
+/* margin: auto;
+   width: 50%;
+   margin-top: 100px;
+   flex-direction: row;
+   text-align: center; */
+/* width: auto;
+height: auto;
+display: flex;
+flex-direction: column;
+margin: 100px; */
+`
+
+const Form = styled.div`
 width: auto;
 height: auto;
 display: flex;
 flex-direction: column;
-margin: 100px;
+margin-top: 150px;
 `
 
-
+const FormDisplay = styled.div`
+background-size: cover;
+ background-color: white;
+rgba: (0, 0, 0, 0);
+text-align: center;
+width: 325px;
+height: 325px;
+h3 {`
 
 
 
@@ -88,20 +114,42 @@ class CommentView extends Component {
     return (
 		<CommentPageWrapper>
 
-       	 <div><h1>Update Comment Below</h1></div>
-        
-            <div>Title: <TextField 
-			onChange={this.handleChange} name="title" 
-			value={this.state.comment.title} /></div>
+       	 
+			<Form>
+			<div><h1>Update Comment Below</h1></div>
+         <FormDisplay>
+            <div> Update Title: <TextField 
+			style={{ }}
+			onChange={this.handleChange} 
+			name="title" 
+			type="text"
+			value={this.state.comment.title} />
+			</div>
 
 
-            <div>Description: <TextField 
-			onChange={this.handleChange} name="description" 
-			value={this.state.comment.description} /></div>
+            <div>Update Description: <TextField 
+			rows={10}
+            multiLine={true}
 			
-        <div><FlatButton onClick={this.editComment} label="Submit"/></div>
-        <div><FlatButton onClick={this.deleteComment} label="delete"/></div>
-            
+			onChange={this.handleChange} 
+			// name="description" 
+			value={this.state.comment.description} />
+			<label htmlFor="description" />
+			</div>
+
+        	<div>
+			<FlatButton
+			onClick={this.editComment} 
+			label="Submit"/>
+			</div>
+        	<div>
+			<FlatButton 
+			onClick={this.deleteComment} 
+			label="delete"/>
+			</div>
+			 </FormDisplay>
+			</Form>
+           
     
 	  </CommentPageWrapper>
     );

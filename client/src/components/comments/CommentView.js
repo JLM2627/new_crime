@@ -3,6 +3,42 @@ import axios from "axios";
 import { Redirect } from "react-router-dom"
 import TextField from "material-ui/TextField"
 import FlatButton from "material-ui/FlatButton"
+import styled from 'styled-components';
+
+
+
+
+
+const CommentPageWrapper = styled.div`
+width: auto;
+height: auto;
+display: flex;
+flex-direction: column;
+margin: 100px;
+`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 class CommentView extends Component {
   state = {
     comment: {},
@@ -50,15 +86,24 @@ class CommentView extends Component {
           return <Redirect to={`/crimes/${this.props.match.params.crimeId}`} />
       }
     return (
-      <div style={{ margin: "10px" }}>
-        <div><h1>Update Comment Below</h1></div>
+		<CommentPageWrapper>
+
+       	 <div><h1>Update Comment Below</h1></div>
         
-            <div>Title: <TextField onChange={this.handleChange} name="title" value={this.state.comment.title} /></div>
-            <div>Description: <TextField onChange={this.handleChange} name="description" value={this.state.comment.description} /></div>
+            <div>Title: <TextField 
+			onChange={this.handleChange} name="title" 
+			value={this.state.comment.title} /></div>
+
+
+            <div>Description: <TextField 
+			onChange={this.handleChange} name="description" 
+			value={this.state.comment.description} /></div>
+			
         <div><FlatButton onClick={this.editComment} label="Submit"/></div>
         <div><FlatButton onClick={this.deleteComment} label="delete"/></div>
             
-      </div>
+    
+	  </CommentPageWrapper>
     );
   }
 }
